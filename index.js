@@ -1,21 +1,26 @@
-/**
- * @format
- */
+/*
+Mr Nguyen Duc Hoang
+https://www.youtube.com/c/nguyenduchoang
+Email: sunlight4d@gmail.com
+Redux in React Native with TodoList app
+*/
 
-import { AppRegistry } from "react-native";
-import { name as appName } from "./app.json";
-import App from "./App";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import React from "react";
-import allReducers from "./reducers";
+import {name as appName} from "./app.json"
+import React, { Component } from 'react';
+import { AppRegistry } from 'react-native';
+
+//Redux
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+import allReducers from './reducers';
+import TaskManagerComponent from './components/TaskManagerComponent';
 
 let store = createStore(allReducers);
-
-const mainApp = () => (
-  <Provider store={store}>
-    <App />
-  </Provider>
+const App = () => (
+    <Provider store={store}>
+        <TaskManagerComponent />
+    </Provider>
 );
 
-AppRegistry.registerComponent(appName, () => mainApp);
+AppRegistry.registerComponent(appName, () => App);
